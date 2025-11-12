@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de Productos Amazon</title>
+    <style>
+        body {
+            background-color: #DDEAF0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Consulta de Productos</h1>
+    <form method="post">
+        <label>Nombre:</label>
+        <input type="text" name="nombre">
+        <label>Precio mínimo:</label>
+        <input type="number" step="0.01" name="precio_min">
+        <label>Precio máximo:</label>
+        <input type="number" step="0.01" name="precio_max">
+        <button type="submit">Filtrar</button>
+    </form>
+
+    <table border="1" style="margin-top: 20px;">
+        <tr>
+            <th>Nombre</th>
+            <th>Precio (USD)</th>
+            <th>Tipo de Entrega</th>
+        </tr>
+        {% for nombre, precio, entrega in productos %}
+        <tr>
+            <td>{{ nombre }}</td>
+            <td>{{ precio }}</td>
+            <td>{{ entrega }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
